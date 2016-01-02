@@ -1,6 +1,10 @@
-var http = require('http')
+var express = require('express');
+var app = express();
 
-http.createServer(function(request, response){
-    response.writeHead(200, {'Content-Type' : "text/plain"});
-    response.end("Hello World 2\n");
-}).listen(process.env.PORT);
+app.get('/', function (req, res) {
+  res.send('Hello World 3!');
+});
+
+var server = app.listen(process.env.PORT, function() {
+    console.log('Express is listening to http://localhost:'+process.env.PORT);
+});
